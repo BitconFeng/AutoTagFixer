@@ -1,0 +1,18 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="fab_margin">16dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+
+    <dimen name="dialog_corners">0dp</dimen>
+    <dimen name="dialog_elevation">8dp</dimen>
+    <dimen name="standard_24">24dp</dimen>
+    <dimen name="standard_55">55dp</dimen>
+    <dimen name="standard_105">105dp</dimen>
+    <dimen name="standard_155">155dp</dimen>
+    <dimen name="standard_205">205dp</dimen>
+    <dimen name="margin_bottom_snackbar">48dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+</resources>

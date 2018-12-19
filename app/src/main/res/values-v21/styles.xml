@@ -1,0 +1,78 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:colorPrimary">@color/primaryColor</item>
+        <item name="android:colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="android:colorAccent">@color/primaryLightColor</item>
+        <item name="android:colorControlActivated">@color/primaryColor</item>
+        <item name="android:colorControlHighlight">@color/primaryLightColor</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+    </style>
+
+    <style name="MainActivityTheme" parent="AppTheme">
+        <item name="colorAccent">@color/primaryColor</item>
+    </style>
+
+    <!--Style details track details activity-->
+    <style name="DetailsTrackDialogTheme" parent="AppTheme">
+        <item name="colorAccent">@color/primaryColor</item>
+    </style>
+
+    <!--Style splash-->
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:buttonStyle">@color/primaryColor</item>
+        <item name="colorAccent">@color/primaryColor</item>
+    </style>
+
+    <!--Style details track dialog activity-->
+    <style name="AboutTheme" parent="AppTheme">
+        <item name="colorAccent">@color/primaryColor</item>
+    </style>
+
+    <!--Style details questions activity-->
+    <style name="QuestionsTheme" parent="AppTheme">
+        <item name="colorAccent">@color/primaryColor</item>
+    </style>
+
+    <style name="MyTransparentTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+
+    <style name="SettingsStyle" parent="Theme.AppCompat">
+        <item name="android:textColorPrimary">@android:color/primary_text_dark</item>
+        <item name="android:colorControlActivated">@color/primaryColor</item>
+        <item name="android:colorAccent">@color/primaryColor</item>
+        <item name="android:colorPrimary">@color/primaryColor</item>
+        <item name="android:colorControlHighlight">@color/primaryLightColor</item>
+        <item name="actionBarTheme">@style/MyApp.ActionBarTheme</item>
+        <item name="colorAccent">@color/primaryColor</item>
+    </style>
+
+    <style name="MyApp.ActionBarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:colorControlHighlight">@color/primaryLightColor</item>
+    </style>
+
+    <style name="RobotoTextViewStyle" parent="android:Widget.TextView">
+        <!--item name="android:fontFamily">sans-serif-light</item-->
+    </style>
+
+
+    <!-- TextInputLayout style-->
+    <style name="CustomEditTextHint" parent="AppTheme">
+        <item name="colorAccent">@color/primaryLightColor</item>
+    </style>
+
+
+    <style name="CustomToast" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">@color/grey_800</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+</resources>

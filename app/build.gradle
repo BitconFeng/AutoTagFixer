@@ -1,0 +1,153 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+/**
+ * The first line in the build configuration applies the Android plugin for
+ * Gradle to this build and makes the android {} block available to specify
+ * Android-specific build options.
+ */
+
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+/**
+ * The android {} block is where you configure all your Android-specific
+ * build options.
+ */
+
+android {
+    /**
+     * compileSdkVersion specifies the Android API level Gradle should use to
+     * compile your app. This means your app can use the API features included in
+     * this API level and lower.
+     *
+     * buildToolsVersion specifies the version of the SDK build tools, command-line
+     * utilities, and compiler that Gradle should use to build your app. You need to
+     * download the build tools using the SDK Manager.
+     */
+    lintOptions { checkReleaseBuilds true }
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+    /**
+     * The defaultConfig {} block encapsulates default settings and entries for all
+     * build variants, and can override some attributes in main/AndroidManifest.xml
+     * dynamically from the build system. You can configure product flavors to override
+     * these values for different versions of your app.
+     */
+
+    defaultConfig {
+        /**
+         * applicationId uniquely identifies the package for publishing.
+         * However, your source code should still reference the package name
+         * defined by the package attribute in the main/AndroidManifest.xml file.
+         */
+        applicationId 'mx.dev.franco.automusictagfixer'
+        minSdkVersion 21
+        targetSdkVersion 27
+        versionCode 7
+        versionName "1.0.6a"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        def documentsAuthorityValue = applicationId + ".documents"
+
+        manifestPlaceholders = [documentsAuthority: documentsAuthorityValue]
+        buildConfigField "String", "DOCUMENTS_AUTHORITY", "\"${documentsAuthorityValue}\""
+    }
+    /**
+     * The buildTypes {} block is where you can configure multiple build types.
+     * By default, the build system defines two build types: debug and release. The
+     * debug build type is not explicitly shown in the default build configuration,
+     * but it includes debugging tools and is signed with the debug key. The release
+     * build type applies Proguard settings and is not signed by default.
+     */
+    buildTypes {
+        /**
+         * By default, Android Studio configures the release build type to enable code
+         * shrinking, using minifyEnabled, and specifies the Proguard settings file.
+         */
+        release {
+            //consumerProguardFiles 'proguard-project.txt'
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable false
+        }
+
+        debug {
+            ext.enableCrashlytics = false
+        }
+    }
+
+    /**
+     * The productFlavors {} block is where you can configure multiple product
+     * flavors. This allows you to create different versions of your app that can
+     * override defaultConfig {} with their own settings. Product flavors are
+     * optional, and the build system does not create them by default. This example
+     * creates a free and paid product flavor. Each product flavor then specifies
+     * its own application ID, so that they can exist on the Google Play Store, or
+     * an Android device, simultaneously.
+     */
+    productFlavors {
+    }
+    /**
+     * The splits {} block is where you can configure different APK builds that
+     * each contain only code and resources for a supported screen density or
+     * ABI. You'll also need to configure your build so that each APK has a
+     * different versionCode.
+     */
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'armeabi', 'armeabi-v7a', 'x86', 'arm64-v8a'
+            universalApk true
+        }
+    }
+
+}
+
+/**
+ * The dependencies {} block in the module-level build configuration file
+ * only specifies dependencies required to build the module itself.
+ */
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile files('libs/gnsdk.jar')
+    compile files('libs/gnsdk_helpers.jar')
+    compile files('libs/jaudiotagger-2.2.4.jar')
+    implementation 'com.android.support:appcompat-v7:27.1.0'
+    implementation 'com.android.support:design:27.1.0'
+    implementation 'com.android.support:cardview-v7:27.1.0'
+    implementation 'com.github.bumptech.glide:glide:4.6.1'
+    implementation 'com.android.support:support-v4:27.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile('com.crashlytics.sdk.android:crashlytics:2.7.1@aar') {
+        transitive = true
+    }
+
+    //implementation 'com.google.android.gms:play-services-gcm:12.0.0'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+
+    //the core iconcis library (without any widgets)
+    implementation "com.mikepenz:iconics-core:3.0.3@aar"
+    implementation "com.android.support:appcompat-v7:27.1.0"
+    //this adds all ui view widgets (IconicsButton, IconicsImageView, ...)
+    implementation "com.mikepenz:iconics-views:3.0.3@aar"
+    implementation 'com.mikepenz:google-material-typeface:3.0.1.2.original@aar'
+}

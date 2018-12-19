@@ -1,0 +1,69 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/automatic_mode">
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="key_rename_file_automatic_mode"
+            android:summary="@string/pref_title_change_description"
+            android:title="@string/pref_title_change" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="key_overwrite_all_tags_automatic_mode"
+            android:summary="@string/pref_replace_auto_all_tags_description"
+            android:title="@string/pref_title_replace_all_tags"/>
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="key_background_service"
+            android:summary="@string/pref_title_background_description"
+            android:title="@string/pref_title_background" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/semi_automatic_mode">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="key_rename_file_semi_automatic_mode"
+            android:summary="@string/pref_semi_automatic_title_change_description"
+            android:title="@string/pref_semi_automatic_title_change" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/manual_mode">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="key_rename_file_manual_mode"
+            android:summary="@string/pref_manual_title_change_description"
+            android:title="@string/pref_manual_title_change" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="key_replace_strange_chars_manual_mode"
+            android:summary="@string/pref_automatically_replace_strange_chars_description"
+            android:title="@string/pref_automatically_replace_strange_chars" />
+    </PreferenceCategory>
+    <!--PreferenceCategory
+        android:title="@string/removable_storage">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="key_auto_update_list"
+            android:summary="@string/pref_enable_auto_update_list"
+            android:title="@string/pref_title_enable_auto_update_list" />
+    </PreferenceCategory-->
+    <PreferenceCategory
+        android:title="@string/enable_embed_player">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="key_use_embed_player"
+            android:summary="@string/pref_enable_embed_player_description"
+            android:title="@string/pref_title_enable_embed_player" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/enable_sd_card_access">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="key_enable_sd_card_access"
+            android:summary="@string/pref_enable_sd_card_access_description"
+            android:title="@string/pref_title_enable_sd_card_access" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
